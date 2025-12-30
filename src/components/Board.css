@@ -1,0 +1,78 @@
+:root {
+  --board-background: transparent;
+  --board-color: #43f71b;
+  --border-thickness: 3px;
+}
+
+.board {
+  width: min(520px, 60vw);   /* bigger + responsive */
+  aspect-ratio: 1 / 1;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  background-color: rgba(133, 28, 105, 0.815);
+
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+
+  /* remove scale for predictable sizing */
+  transform: none;
+}
+
+
+
+.input {
+  width: 33.33%;
+  height: 33.33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(158, 197, 50);
+  font-family: 'Bellefair', serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 6rem;
+  box-sizing: border-box;
+  
+}
+
+/* Top row */
+.input1,
+.input2 {
+  border-right: var(--border-thickness) solid var(--board-color);
+  border-bottom: var(--border-thickness) solid var(--board-color);
+}
+
+.input3 {
+  border-bottom: var(--border-thickness) solid var(--board-color);
+}
+
+/* Middle row */
+.input4,
+.input5 {
+  border-right: var(--border-thickness) solid var(--board-color);
+  border-bottom: var(--border-thickness) solid var(--board-color);
+}
+
+.input6 {
+  border-bottom: var(--border-thickness) solid var(--board-color);
+}
+
+/* Bottom row */
+.input7,
+.input8 {
+  border-right: var(--border-thickness) solid var(--board-color);
+}
+
+.input {
+  -webkit-user-select: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.input.disabled {
+  cursor: not-allowed;
+  opacity: 0.85;
+}

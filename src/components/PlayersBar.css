@@ -1,0 +1,168 @@
+/* ===== Fancy Players Bar ===== */
+
+.playersBar {
+  width: min(640px, 92vw);
+  margin: 22px auto 14px;
+
+  display: flex;
+  gap: 14px;
+  padding: 14px;
+
+  border-radius: 22px;
+  position: relative;
+  overflow: hidden;
+
+  /* Glass base */
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+
+  /* Depth */
+  box-shadow:
+    0 20px 55px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+/* Animated glowing gradient “mist” */
+.playersBar::before {
+  content: "";
+  position: absolute;
+  inset: -80px;
+  background: conic-gradient(
+    from 180deg,
+    rgba(110, 99, 255, 0.35),
+    rgba(0, 255, 200, 0.25),
+    rgba(255, 90, 200, 0.25),
+    rgba(110, 99, 255, 0.35)
+  );
+  filter: blur(40px);
+  opacity: 0.55;
+  animation: spin 10s linear infinite;
+}
+
+.playersBar::after {
+  /* subtle shine sweep */
+  content: "";
+  position: absolute;
+  top: -40%;
+  left: -60%;
+  width: 60%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.20),
+    transparent
+  );
+  transform: rotate(18deg);
+  animation: sweep 6s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes sweep {
+  0%   { transform: translateX(0) rotate(18deg); opacity: 0.0; }
+  20%  { opacity: 0.6; }
+  50%  { transform: translateX(220%) rotate(18deg); opacity: 0.15; }
+  100% { transform: translateX(220%) rotate(18deg); opacity: 0.0; }
+}
+
+/* Content must sit above pseudo-elements */
+.playersBar > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== Player card ===== */
+
+.playerPill {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 14px 16px;
+  border-radius: 18px;
+
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.10);
+
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.playerPill:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+/* Active player = neon glow + tiny pulse */
+.playerPill.active {
+  border-color: rgba(110, 99, 255, 0.75);
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.5),
+    0 0 0 2px rgba(110, 99, 255, 0.25),
+    0 0 18px rgba(110, 99, 255, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+
+  animation: pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-1px); }
+}
+
+/* ===== Badge ===== */
+
+.badge {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+
+  border-radius: 14px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.95);
+
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 255, 255, 0.18),
+    rgba(110, 99, 255, 0.25)
+  );
+  border: 1px solid rgba(110, 99, 255, 0.55);
+
+  box-shadow:
+    0 10px 18px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+}
+
+/* ===== Name text ===== */
+
+.name {
+  font-size: 16px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.92);
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.name::first-letter {
+  text-transform: uppercase;
+}
+
+/* Small helper text (optional if you add it later) */
+.sub {
+  font-size: 12px;
+  opacity: 0.75;
+}
