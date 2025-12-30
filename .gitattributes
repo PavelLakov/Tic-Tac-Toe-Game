@@ -1,2 +1,2 @@
 # Tell GitHub to ignore CSS when calculating languages
-*.css linguist-ignore
+*.css linguist-detectable=false
