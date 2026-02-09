@@ -1,3 +1,5 @@
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)](https://pavel-tic-tac-toe-game-react.netlify.app/)
+
 # 🎮 Tic-Tac-Toe Game (React)
 
 A modern, responsive **Tic-Tac-Toe** game built with **React** and **CSS**, featuring a polished UI, player name setup, turn tracking, winner detection, and reset functionality.
