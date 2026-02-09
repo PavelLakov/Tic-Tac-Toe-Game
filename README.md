@@ -6,7 +6,6 @@ A modern, responsive **Tic-Tac-Toe** game built with **React** and **CSS**, feat
 
 This project focuses on **clean state management**, **component separation**, and **UI/UX clarity**, making it suitable both as a learning project and as a portfolio piece.
 
-🔗 Live Demo: https://pavel-tic-tac-toe-game-react.netlify.app/
 
 ## ✨ Features
 
